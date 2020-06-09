@@ -7,4 +7,4 @@ for (let i = 0; i < stringNum.length; i++) {
 }
 
 mulResult **= 3;
-console.log(mulResult.toString().slice(-2));
+console.log(mulResult.toString().substring(0, 2));
