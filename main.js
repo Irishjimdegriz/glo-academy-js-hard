@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 // first
-let lang = "en";
+let lang = prompt("en / ru");
 
 if (lang === "ru") {
   console.log("понедельник, вторник, среда, четверг, пятница, суббота, воскресенье");
@@ -34,6 +34,6 @@ console.log(daysOfWeekObj[lang]);
 
 // second
 
-let namePerson = 'Артем';
+let namePerson = prompt('Введите имя');
 
 console.log(namePerson === 'Артем' ? "директор" : (namePerson === 'Максим' ? 'преподаватель' : 'студент'));
