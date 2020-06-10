@@ -2,6 +2,7 @@
 
 const cropString = function(argument) {
   if (typeof argument !== 'string' || isNumeric(+argument)) {
+    alert('Not a string');
     return 'Передана не строка';
   } else {
     let result = argument.trim();
@@ -17,10 +18,10 @@ const cropString = function(argument) {
 console.log(cropString(prompt('Введите аргумент')));
 
 console.log('Собственная проверка:');
-console.log(cropString(1));
-console.log(cropString("Проверка"));
-console.log(cropString("     Проверка         "));
-console.log(cropString("Корабли лавировали, лавировали, да не вылавировали"));
+// console.log(cropString(1));
+// console.log(cropString("Проверка"));
+// console.log(cropString("     Проверка         "));
+// console.log(cropString("Корабли лавировали, лавировали, да не вылавировали"));
 
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
