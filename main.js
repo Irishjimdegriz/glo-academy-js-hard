@@ -1,28 +1,33 @@
 ﻿'use strict';
 
-const cropString = function(argument) {
-  if (typeof argument !== 'string' || isNumeric(+argument)) {
-    alert('Not a string');
-    return 'Передана не строка';
-  } else {
-    let result = argument.trim();
+// first
 
-    if (result.length > 30) {
-      return result.substring(0, 30) + '...';
-    } else {
-      return result;
-    }
+let arr = ['111111111', '222222222', '3333333333', '4444444444', '5555555555', '6666666666', '7777777777'];
+
+for (let i = 0; i < arr.length; i++){
+  if (arr[i].charAt(0) === '2' || arr[i].charAt(0) === '4') {
+    console.log(arr[i]);
   }
 }
 
-console.log(cropString(prompt('Введите аргумент')));
+// second
+let primeNumbers = [];
+let dividersCount = 2;
 
-console.log('Собственная проверка:');
-console.log(cropString(1));
-console.log(cropString("Проверка"));
-console.log(cropString("     Проверка         "));
-console.log(cropString("Корабли лавировали, лавировали, да не вылавировали"));
+for (let i = 2; i <= 100; i++) {
+  dividersCount = 2;
 
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+  for (let j = 0; j < primeNumbers.length; j++){
+    if (i % primeNumbers[j] === 0) {
+      dividersCount++;
+    }
+  }
+
+  if (dividersCount === 2) {
+    primeNumbers.push(i);
+  }
+}
+
+for (let i = 0; i < primeNumbers.length; i++) {
+  console.log(primeNumbers[i] + ' - делится на 1 и ' + primeNumbers[i] );
 }
