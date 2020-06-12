@@ -1,33 +1,31 @@
 ﻿'use strict';
 
-// first
+let week = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
 
-let arr = ['111111111', '222222222', '3333333333', '4444444444', '5555555555', '6666666666', '7777777777'];
+let d = new Date();
+let n = d.getDay() - 1;
 
-for (let i = 0; i < arr.length; i++){
-  if (arr[i].charAt(0) === '2' || arr[i].charAt(0) === '4') {
-    console.log(arr[i]);
-  }
-}
+n = n < 0 ? 6 : n;    // для запуска в воскресенье
 
-// second
-let primeNumbers = [];
-let dividersCount = 2;
+for (let i = 0; i < week.length; i++) {
+  let style = '';
+  let resultText = week[i]
 
-for (let i = 2; i <= 100; i++) {
-  dividersCount = 2;
-
-  for (let j = 0; j < primeNumbers.length; j++){
-    if (i % primeNumbers[j] === 0) {
-      dividersCount++;
-    }
+  if (i > 4) {
+    style = "font-style: italic;";
+    resultText = resultText.italics();
   }
 
-  if (dividersCount === 2) {
-    primeNumbers.push(i);
+  if (i === n) {
+    style += "font-weight: bold;";
+    resultText = resultText.bold();
   }
-}
 
-for (let i = 0; i < primeNumbers.length; i++) {
-  console.log(primeNumbers[i] + ' - делится на 1 и ' + primeNumbers[i] );
+  console.log('%c' + week[i], style);
+
+  let elem = document.createElement("p");
+      elem.innerHTML = resultText;
+
+  let myDiv = document.getElementById("days-of-week");
+  document.body.insertBefore(elem, myDiv);
 }
