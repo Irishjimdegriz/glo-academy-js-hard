@@ -1,29 +1,43 @@
 ﻿'use strict';
 
-const wrapper = document.querySelector('.wrapper'),
-      changeButton = document.querySelector('#change'),
-      header = document.querySelector('#color');
+const duck = document.querySelector('.duck'),
+      toggleButton = document.querySelector('.toggle-button'),
+      resetButton = document.querySelector('.reset-button'),
+      wrapper = document.querySelector('.wrapper'),
+      captions = ['Включить анимацию', 'Выключить анимацию'],
+      duckWidth = 100;
 
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-}
+let mode = 0,
+    count = -duckWidth,
+    animationFrame;
 
-const changeFunction = () => {
-  let red = getRandomInt(0, 255).toString(16),
-      green = getRandomInt(0, 255).toString(16),
-      blue = getRandomInt(0, 255).toString(16),
-      backgroundColor = '#' + red.padStart(2, '0') + green.padStart(2, '0') + blue.padStart(2, '0');
+const animate = () => {
+  count++;
+  duck.style.left = count + 'px';
 
-  wrapper.style.backgroundColor = backgroundColor;
-  wrapper.style.transition = 'background-color 1000ms linear';   
-
-  header.textContent = backgroundColor;
-
+  if (count + duckWidth >= wrapper.clientWidth) {
+    window.cancelAnimationFrame(animationFrame);
+  } else {
+    animationFrame = requestAnimationFrame(animate);
+  }
 };
 
-changeButton.addEventListener('click', changeFunction);
+toggleButton.addEventListener('click', () => {
+  if (mode === 0) {
+    animationFrame = window.requestAnimationFrame(animate);
+    mode = 1;
+  } else {
+    window.cancelAnimationFrame(animationFrame);
+    mode = 0;
+  }
 
-changeFunction();
+  toggleButton.textContent = captions[mode];
+});
 
+resetButton.addEventListener('click', () => {
+  window.cancelAnimationFrame(animationFrame);
+  count = -duckWidth;
+  duck.style.left = count + 'px';
+  mode = 0;
+  toggleButton.textContent = captions[mode];
+});

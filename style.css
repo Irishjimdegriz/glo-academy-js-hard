@@ -1,18 +1,39 @@
 * {
   margin: 0;
+  padding: 0;
 }
 
 .wrapper {
-  padding: 2rem;
   text-align: center;
   height: 100vh;
+  background: url('img/stage.png') center no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
-#change {
-  margin-top: 1rem;
-  padding: 1rem 2rem;
+.duck {
+  width: 100px;
+  height: 100px;
+  background: url('img/EasyMerryAnteater-size_restricted.gif') center no-repeat;
+  position: absolute;
+  top: 100px;
+  left: -100px;
 }
 
-#color {
-  color: #fff;
+.button-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button {
+  width: 250px;
+  height: 50px;
+  margin-right: 2rem;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 0;
+  outline: 0;
 }
