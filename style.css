@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
+
+.translate-text {
+  flex-basis: 43%;
+  height: 500px;
+  padding-top: 0;
+  padding-left: 0;
+  line-height: 1em;
+}
+
+.translation-result {
+  flex-basis: 43%;
+  height: 500px;
+  border: 1px solid black;
+}
+
+.translate-button {
+  flex-basis: 10%;
+  height: 50px;
+}
+
+#language-select {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
